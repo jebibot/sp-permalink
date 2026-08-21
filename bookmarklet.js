@@ -5,7 +5,7 @@
   if (!c) throw new Error("댓글을 찾지 못했습니다");
   const cid = Object.entries(c).find(([k]) => k.startsWith("__reactFiber$"))?.[1].return?.memoizedProps?.comment.id;
   if (!cid) throw new Error("댓글 ID를 찾지 못했습니다");
-  location.hash = `#comment_noti${cid}`;
+  location.hash = `#comment${cid}`;
   await navigator.clipboard.writeText(location.href);
   prompt("복사되었습니다! 복사가 되지 않으면 아래 텍스트를 복사하여 주세요.", location.href);
   location.reload();
